@@ -29,6 +29,10 @@ fn main() -> ! {
     // todo: new stdout design (simple Write impl?)
     let mut stdout = Stdout(&mut tx);
 
+    let _i2c1_scl = fpioa.io30.into_function(fpioa::I2C1_SCLK);
+    let _i2c1_sda = fpioa.io31.into_function(fpioa::I2C1_SDA);
+
+
     writeln!(stdout, "Hello, Rust!").unwrap();
 
     loop {

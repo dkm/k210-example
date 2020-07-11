@@ -6,6 +6,8 @@ edition = "2018"
 
 [dependencies]
 panic-halt = "0.2.0"
-riscv = "0.5.6"
-riscv-rt = "0.7.0"
-k210-hal = "0.2.0"
+riscv = "0.6.0"
+##riscv-rt = "0.7.1"
+riscv-rt = { path = "../riscv-rt/" }
+##k210-hal = "0.2.0"
+k210-hal = { path="../k210-hal"}
