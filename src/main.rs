@@ -21,7 +21,7 @@ fn main() -> ! {
 
     // Configure UART
     let serial = p.UARTHS.configure(
-        115_200.bps(), 
+        115_200.bps(),
         &clocks
     );
     let (mut tx, _) = serial.split();
@@ -29,9 +29,13 @@ fn main() -> ! {
     // todo: new stdout design (simple Write impl?)
     let mut stdout = Stdout(&mut tx);
 
-    let _i2c1_scl = fpioa.io30.into_function(fpioa::I2C1_SCLK);
-    let _i2c1_sda = fpioa.io31.into_function(fpioa::I2C1_SDA);
-
+    let i2c1 = p.I2C1.configure(
+        (
+            fpioa.io30.into_function(fpioa::I2C1_SCLK),
+            fpioa.io31.into_function(fpioa::I2C1_SDA)
+        ),
+        &clocks
+    );
 
     writeln!(stdout, "Hello, Rust!").unwrap();
 

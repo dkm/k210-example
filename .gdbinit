@@ -2,7 +2,7 @@
 source ~/git/rust-embedded/PyCortexMDebug/scripts/gdb.py
 svd_load ~/git/rust-embedded/rv64/k210-pac/k210.svd
 
-##target remote :3333
+target remote :3333
 
 # print demangled symbols by default
 set print asm-demangle on
@@ -21,6 +21,6 @@ set print asm-demangle on
 # # enable ITM port 0
 # monitor itm port 0 on
 
-##load
+load
 ##step
 #continue
